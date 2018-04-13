@@ -15,7 +15,7 @@ module.exports = (event, context, callback) => {
   log.requestId = event.headers.requestId
 
   let account = new AccountModel()
-  account.authyId = event.headers.authyId
+  account.authyId = parseInt(event.headers.authyId)
   account.getAccount((error, result) => {
     if (error) {
       log.content.error = error
